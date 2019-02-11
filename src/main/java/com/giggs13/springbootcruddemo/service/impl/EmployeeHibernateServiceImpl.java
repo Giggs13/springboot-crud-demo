@@ -4,19 +4,20 @@ import com.giggs13.springbootcruddemo.dao.EmployeeDAO;
 import com.giggs13.springbootcruddemo.entity.Employee;
 import com.giggs13.springbootcruddemo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
-public class EmployeeServiceImpl
+@Service("employeeHibernateService")
+public class EmployeeHibernateServiceImpl
         implements EmployeeService {
 
     private EmployeeDAO employeeDAO;
 
     @Autowired
-    public EmployeeServiceImpl(EmployeeDAO employeeDAO) {
+    public EmployeeHibernateServiceImpl(@Qualifier("employeeDAOHibernate") EmployeeDAO employeeDAO) {
         this.employeeDAO = employeeDAO;
     }
 

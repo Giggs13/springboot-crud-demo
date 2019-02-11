@@ -5,6 +5,7 @@ import com.giggs13.springbootcruddemo.entity.Employee;
 import com.giggs13.springbootcruddemo.service.EmployeeService;
 import com.giggs13.springbootcruddemo.util.RestPreconditions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -12,13 +13,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/employees")
-public class EmployeeApiController {
+@RequestMapping("/api/hibernate/employees")
+public class EmployeeApiHibernateController {
 
     private EmployeeService employeeService;
 
     @Autowired
-    public EmployeeApiController(EmployeeService employeeService) {
+    public EmployeeApiHibernateController(@Qualifier("employeeHibernateService") EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 

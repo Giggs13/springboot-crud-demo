@@ -1,6 +1,6 @@
 package com.giggs13.springbootcruddemo.aspect.controller;
 
-import com.giggs13.springbootcruddemo.controller.EmployeeApiController;
+import com.giggs13.springbootcruddemo.controller.EmployeeApiHibernateController;
 import com.giggs13.springbootcruddemo.entity.error.EmployeeErrorResponse;
 import com.giggs13.springbootcruddemo.error.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice(basePackageClasses = {
-        EmployeeApiController.class
+        EmployeeApiHibernateController.class
 })
 public class EmployeeApiExceptionHandler {
 
